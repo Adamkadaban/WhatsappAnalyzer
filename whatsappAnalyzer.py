@@ -132,7 +132,7 @@ def drawEmojiFrequency(m):
     # plt.xticks(font="Arial")
     plt.xlabel("Emoji")
     plt.ylabel("Number times used")
-    plt.title("Freuqnecy of emojis used with "+Name)
+    plt.title("Frequency of emojis used with "+Name)
     plt.show()
 def dateToNum(a):
     x=a.split("/")
