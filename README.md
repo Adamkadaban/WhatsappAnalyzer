@@ -9,7 +9,7 @@ Rename the file to the first name of the person, or whatever the first part of t
 
 Change the strings at the top of the program to indicate your name, and the file name of the chat you just downloaded
 
-Install matplotlib if you dont already have it:
+Install matplotlib if you don't already have it:
 
 `pip install matplotlib`
 
@@ -17,4 +17,5 @@ Install matplotlib if you dont already have it:
 This program is largely a work in progress
 
 The emojis frequency window doesn't display emojis accurately, bc unicode doesnt work well :(
+
 (Let me know if you know how to fix it!)
