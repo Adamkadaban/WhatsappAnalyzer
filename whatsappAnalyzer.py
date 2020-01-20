@@ -1,5 +1,5 @@
-myName="ExampleName" #Your first name (or however your name is stored in your contacts)
-fileName="example.txt" #The name of your file should preferably be teh first name of their contact
+myName="" #Your first name (or however your name is stored in your contacts)
+fileName="" #The name of your file should preferably be the first name of their contact
 
 
 import numpy as np
@@ -147,14 +147,43 @@ def drawDates(a):
     datesV=[matplotlib.dates.datestr2num(i) for i in datesV]
     # datesV=[matplotlib.dates.num2timedelta(dateToNum(i)) for i in datesV]
     frequencies=list(vals.values())
+
     plt.plot_date(datesV, frequencies, "-", color="#3285a8")
+    # plt.bar(datesV, frequencies)
+    plt.ylim(0)
+    # plt.bar(datesV, frequencies)
     plt.title(("Frequency of messages with "+Name))
     plt.xlabel("Date")
     plt.ylabel("Frequency of Messages")
+
     # slope, b = np.polyfit(datesV, frequencies, 1)
     # plt.plot(np.unique(datesV), np.poly1d(np.polyfit(datesV, frequencies, 1))(np.unique(datesV)), color="red")
     plt.show()
-
+def numMessages(m):
+    me=0
+    meName=myName
+    them=0
+    themName=fileName[:-4]
+    # print(m[1])
+    for i in m:
+        name=i[1][0]
+        if meName in name:
+            me+=1
+        if themName in name:
+            them+=1
+    labels=[meName, themName]
+    vals=[me, them]
+    explode=[0,0]
+    maxI=0
+    maxVal=vals[maxI]
+    for i in range(1,len(vals)):
+        if vals[i]>maxVal:
+            maxI=i
+    explode[maxI]=.1
+    plt.pie(vals, labels=labels,explode=explode, autopct=lambda x: int(abs(x)*sum(vals)//100), startangle=90, shadow=True)
+    plt.axis('equal')
+    plt.title("Number of messages sent by each individual")
+    plt.show()
 
 # def analyzeDates(m):
 #     dates=[i[0][0] for i in m]
@@ -242,4 +271,4 @@ drawDates(messages)
 drawEmojiFrequency(messages)
 wordFrequency(messages)
 timeAnalyzer(messages)
-
+numMessages(messages)
