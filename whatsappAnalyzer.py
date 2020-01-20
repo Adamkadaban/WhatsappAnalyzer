@@ -87,6 +87,29 @@ def wordFrequency(m):
     plt.title("Most frequently used words by "+Name)
     plt.show()
 
+def wordFrequency2(m):
+    r={}
+    for i in m:
+        ms=i[1][1]
+        ps=i[1][0]
+        if myName in ps:
+            words=ms.split(" ")
+            for j in words:
+                if j not in r:
+                    r[j]=1
+                else:
+                    r[j]=r[j]+1
+    if " " in r:
+        r[" "]=0
+    r=sortDict(r)
+    words=list(r.keys())[:20]
+    nums=list(r.values())[:20]
+    plt.bar(words, nums)
+    plt.xlabel("Word")
+    plt.ylabel("Number of times used")
+    plt.title("Most frequently used words by "+myName)
+    plt.show()
+
 def countMessages(m):
     Me = 0
     Them = 0
@@ -270,5 +293,6 @@ messages=newM
 drawDates(messages)
 drawEmojiFrequency(messages)
 wordFrequency(messages)
+wordFrequency2(messages)
 timeAnalyzer(messages)
 numMessages(messages)
