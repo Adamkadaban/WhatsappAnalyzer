@@ -1,5 +1,5 @@
-myName="" #Your first name (or however your name is stored in your contacts)
-fileName="" #The name of your file should preferably be the first name of their contact
+myName="ExampleName" #Your first name (or however your name is stored in your contacts)
+fileName="example.txt" #The name of your file should preferably be the first name of their contact
 
 
 import numpy as np
